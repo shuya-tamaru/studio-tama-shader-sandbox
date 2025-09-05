@@ -1,0 +1,64 @@
+body {
+  background: "none";
+  background-color: "none";
+}
+
+.toc .toc-0 .toc-1 .toc-2 {
+  border-radius: 0.5rem;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.toc-list .toc-list {
+  padding-top: 0.5rem;
+  list-style: inside;
+}
+
+.toc-list-item {
+  padding-bottom: 0.5rem;
+  list-style: inside;
+}
+.toc-list-item::marker {
+  color: #888;
+}
+
+.toc-list-item:last-child {
+  padding-bottom: 0;
+}
+
+.toc-link {
+  font-weight: 600;
+  color: #888;
+}
+
+.youtube-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+}
+
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1::before,
+h2::before,
+h3::before {
+  display: block;
+  content: " ";
+  height: 71px;
+  margin-top: -71px;
+  visibility: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .youtube-container {
+    width: 100%;
+    margin: auto;
+  }
+}
