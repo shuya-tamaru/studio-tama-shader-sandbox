@@ -1,7 +1,5 @@
 import "@/styles/globals.css";
-import { ColorModeScript } from "@chakra-ui/react";
 import { Metadata } from "next";
-import theme from "../configs/theme";
 import { Providers } from "./Provider";
 import Analytics from "../components/GoogleAnalytics";
 
@@ -52,7 +50,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ja">
     <head>
       <Analytics />
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     </head>
     <body>
       <Providers>{children}</Providers>

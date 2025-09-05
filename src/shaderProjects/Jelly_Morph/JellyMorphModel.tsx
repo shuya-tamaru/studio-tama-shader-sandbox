@@ -132,7 +132,7 @@ function JellyMorphModel() {
 
   useEffect(() => {
     reset(initialUniforms);
-  }, [reset, initialUniforms]);
+  }, [reset]);
 
   useFrame((state) => {
     uniforms.uTime.value = state.clock.getElapsedTime();

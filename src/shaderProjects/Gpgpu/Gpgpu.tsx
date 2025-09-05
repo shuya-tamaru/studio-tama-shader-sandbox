@@ -10,7 +10,7 @@ export default function Gpgpu() {
   return (
     <>
       <Box position={"relative"} w="100%" h="100%">
-        <VRButton />
+        {/* <VRButton /> */}
         <DefaultCanvas
           useOrbitControls={true}
           background="#000"

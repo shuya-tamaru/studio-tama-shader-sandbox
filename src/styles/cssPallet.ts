@@ -1,6 +1,6 @@
 export const mainBgColor = {
   light: "#fff",
-  dark: "gray.800",
+  dark: "#000",
 };
 
 export const mainFontColor = {

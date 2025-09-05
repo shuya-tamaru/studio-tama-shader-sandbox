@@ -1,6 +1,9 @@
+html,
 body {
-  background: "#000";
-  background-color: "#000";
+  background: #000 !important;
+  background-color: #000 !important;
+  margin: 0;
+  padding: 0;
 }
 
 .toc .toc-0 .toc-1 .toc-2 {

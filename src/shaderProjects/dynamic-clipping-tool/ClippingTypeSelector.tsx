@@ -8,10 +8,8 @@ import {
 import { GiHolosphere } from "react-icons/gi";
 import { PiCubeThin } from "react-icons/pi";
 import { PiGridFour } from "react-icons/pi";
-import { themeColor } from "../../styles/cssPallet";
 import { IconType } from "react-icons";
 import useClippingSelector, { ClippingType } from "./store/useClippingSelector";
-import { gradientBg } from "../../styles/cssPaletShader";
 
 export default function ClippingTypeSelector() {
   return (
