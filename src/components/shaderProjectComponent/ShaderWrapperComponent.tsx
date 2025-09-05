@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 
 import { Box } from "@chakra-ui/react";
 import WebGL from "./WebGL";
@@ -9,10 +8,6 @@ interface Props {
 }
 
 export default function ShaderWrapperComponent({ slug }: Props) {
-  useEffect(() => {
-    document.body.style.backgroundColor = mainBg;
-  }, []);
-
   return (
     <Box minH={"100vh"} bg={mainBg}>
       <WebGL />

@@ -1,12 +1,9 @@
 import { Metadata } from "next";
-import {
-  ShaderSlugMapper,
-  shaderSlugMapper,
-} from "../../shaderProjects/shaderSlugMapper";
+import { shaderSlugMapper } from "../../shaderProjects/shaderSlugMapper";
 import ShaderWrapperComponent from "../../components/shaderProjectComponent/ShaderWrapperComponent";
 
 export type PageProps = {
-  params: ShaderSlugMapper;
+  params: { slug: string };
 };
 
 export async function generateMetadata({
@@ -68,12 +65,12 @@ export async function generateMetadata({
   }
 }
 
-export default function ShaderPostPage({ params }: PageProps) {
+export default async function ShaderPostPage({ params }: PageProps) {
   const { slug } = params;
   return <ShaderWrapperComponent slug={slug} />;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   const allPosts = shaderSlugMapper;
   const slugs = allPosts.map((post) => ({
     slug: post.slug,
