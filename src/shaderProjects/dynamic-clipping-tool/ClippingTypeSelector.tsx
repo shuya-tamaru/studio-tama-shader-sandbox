@@ -1,10 +1,4 @@
-import {
-  Box,
-  Center,
-  Icon,
-  Tooltip,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Center, Icon, Tooltip } from "@chakra-ui/react";
 import { GiHolosphere } from "react-icons/gi";
 import { PiCubeThin } from "react-icons/pi";
 import { PiGridFour } from "react-icons/pi";
@@ -13,7 +7,7 @@ import useClippingSelector, { ClippingType } from "./store/useClippingSelector";
 
 export default function ClippingTypeSelector() {
   return (
-    <Center h="50px" w={"140px"} position={"absolute"} bottom={0}>
+    <Center h="50px" w={"140px"} position={"absolute"} bottom={0} right={0}>
       <IconComponent
         icon={GiHolosphere}
         label="Sphere"
