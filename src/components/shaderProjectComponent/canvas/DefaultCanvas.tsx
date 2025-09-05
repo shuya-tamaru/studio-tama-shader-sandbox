@@ -1,9 +1,10 @@
 import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
-import { Box } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { Box, Center } from "@chakra-ui/react";
+import { Suspense, useRef, useState } from "react";
 import Debug from "./Debug";
+import { TailSpin } from "react-loader-spinner";
 
 const OrbitControlsDynamic = dynamic(() =>
   import("@react-three/drei").then((mod) => mod.OrbitControls)
@@ -37,21 +38,7 @@ export default function DefaultCanvas({
   useDebug = false,
 }: Props) {
   const canvasRef = useRef<HTMLDivElement | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const toggleFullscreen = () => {
-    if (!isFullscreen) {
-      if (canvasRef.current?.requestFullscreen) {
-        canvasRef.current.requestFullscreen();
-      }
-      setIsFullscreen(true);
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-      setIsFullscreen(false);
-    }
-  };
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Box
@@ -63,15 +50,43 @@ export default function DefaultCanvas({
       background={background}
     >
       {useDebug && <Debug />}
+
+      {/* フルスクリーンスピナー */}
+      {isLoading && (
+        <Center
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          bg={background}
+          zIndex={10}
+        >
+          <TailSpin
+            width="60px"
+            height="60px"
+            color="#fff"
+            radius="1"
+            visible={true}
+          />
+        </Center>
+      )}
+
       <Canvas
         style={{
           width: "100%",
           height: "100%",
         }}
         camera={cameraProps}
+        onCreated={() => {
+          // Canvasが作成されたらスピナーを非表示
+          setTimeout(() => setIsLoading(false), 500);
+        }}
       >
-        {useOrbitControls && <OrbitControlsDynamic makeDefault />}
-        {children}
+        <Suspense fallback={null}>
+          {useOrbitControls && <OrbitControlsDynamic makeDefault />}
+          {children}
+        </Suspense>
       </Canvas>
     </Box>
   );

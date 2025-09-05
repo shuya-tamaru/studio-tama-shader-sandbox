@@ -1,8 +1,6 @@
 import * as THREE from "three";
 import { Box } from "@chakra-ui/react";
 
-import clippingVertex from "./shaders/clippingVertex.glsl";
-import clippingFragment from "./shaders/clippingFragment.glsl";
 import DefaultCanvas from "../../components/shaderProjectComponent/canvas/DefaultCanvas";
 import ClippingModel from "./ClippingModel";
 import ClippingTypeSelector from "./ClippingTypeSelector";
