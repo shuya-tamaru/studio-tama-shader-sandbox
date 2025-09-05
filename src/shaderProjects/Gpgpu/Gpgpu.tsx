@@ -40,8 +40,6 @@ const CameraSetup = ({ position }: { position: THREE.Vector3 }) => {
   useEffect(() => {
     if (isPresenting && player) {
       player.position.set(position.x, position.y, position.z);
-      // player.rotation.set(0, Math.PI, 0);
-      // player.lookAt(new THREE.Vector3(-0.14, 1.67, 0.05));
     }
   }, [isPresenting, player]);
 

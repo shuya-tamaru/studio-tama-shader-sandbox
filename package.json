@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:export": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build"
+    "export": "NODE_ENV=production next build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
